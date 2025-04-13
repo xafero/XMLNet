@@ -400,3 +400,4 @@ FodyWeavers.xsd
 *.sln.iml
 /src/.idea/
 /pub/
+/src/XMLCmd/Resources/shit*.xml

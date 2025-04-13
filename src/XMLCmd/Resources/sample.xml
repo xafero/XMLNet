@@ -1,0 +1,10 @@
+<bookstore>
+    <book>
+        <title lang="en" domain="com">Harry Potter</title>
+        <author age="29">J.K. Rowling</author>
+    </book>
+    <book>
+        <title lang="en" domain="nl">The Hobbit</title>
+        <author age="87">J.R.R. Tolkien</author>
+    </book>
+</bookstore>

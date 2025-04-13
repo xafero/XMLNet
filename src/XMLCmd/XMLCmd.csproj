@@ -1,14 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>XMLNet</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Company>xafero</Company>
+    <AssemblyName>XMLCmd</AssemblyName>
+    <InformationalVersion>0.1</InformationalVersion>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.9.1" />
+  </ItemGroup>
+  
   <ItemGroup>
     <None Update="Resources\*.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ZUGFeRD-csharp" Version="17.2.0" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-namespace XMLCmd
+namespace XMLNet
 {
     public record XPathed(
         string Key,

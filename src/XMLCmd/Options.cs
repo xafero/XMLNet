@@ -12,6 +12,9 @@ namespace XMLNet
         [Option('n', "spaces", HelpText = "Ignore XML namespaces.")]
         public bool NoPrefix { get; set; }
 
+        [Option('r', "reverse", HelpText = "Swap key and values.")]
+        public bool ReverseOut { get; set; }
+
         [Option('i', "input", HelpText = "Set input directory.")]
         public string InputDir { get; set; }
 

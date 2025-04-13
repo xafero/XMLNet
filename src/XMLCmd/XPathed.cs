@@ -5,9 +5,11 @@ namespace XMLNet
         string Val
     )
     {
-        public override string ToString()
+        public string ToString(bool reverse)
         {
-            return $"{Key} = '{Val}'";
+            return reverse
+                ? $"'{Val}' = {Key}"
+                : $"{Key} = '{Val}'";
         }
     }
 }

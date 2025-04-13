@@ -12,16 +12,17 @@ namespace XMLNet
         {
             var inputDir = Path.GetFullPath(options.InputDir);
             var ignoreNsp = options.NoPrefix;
+            var reverseOut = options.ReverseOut;
 
-            var o = SearchOption.AllDirectories;
+            const SearchOption o = SearchOption.AllDirectories;
             var files = Directory.EnumerateFiles(inputDir, "*.xml", o);
             foreach (var file in files)
             {
-                ExtractXPath(file, ignoreNsp);
+                ExtractXPath(file, ignoreNsp, reverseOut);
             }
         }
 
-        private static void ExtractXPath(string xmlFile, bool ignoreNsp)
+        private static void ExtractXPath(string xmlFile, bool ignoreNsp, bool reverse)
         {
             var doc = new XmlDocument();
             doc.Load(xmlFile);
@@ -31,7 +32,8 @@ namespace XMLNet
 
             foreach (var xpath in xpaths)
             {
-                Console.WriteLine(xpath);
+                var line = xpath.ToString(reverse);
+                Console.WriteLine(line);
             }
         }
 

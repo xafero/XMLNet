@@ -38,7 +38,7 @@ namespace XMLNet
         }
 
         private static void GenerateXPaths(XmlNode node, string currentPath,
-            List<XPathed> xpaths, bool ignoreNsp)
+            List<XPathed> xpaths, bool ignoreNsp, int maxTxtLen = 200)
         {
             var name = node.Name;
             if (ignoreNsp) name = node.LocalName;
@@ -58,7 +58,14 @@ namespace XMLNet
                         GenerateXPaths(child, path, xpaths, ignoreNsp);
                         continue;
                     case XmlNodeType.Text:
-                        var text = child.Value;
+                        var text = child.Value?.Trim() ?? string.Empty;
+                        if (text.Length > maxTxtLen)
+                            text = text[..maxTxtLen];
+                        text = text
+                            .Replace('\t', ' ')
+                            .Replace('\r', ' ')
+                            .Replace('\n', ' ')
+                            .Trim();
                         xpaths.Add(new XPathed(path, text));
                         continue;
                 }
